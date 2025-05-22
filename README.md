@@ -70,11 +70,29 @@ This project implements a **Simple Attention Augmented CNN** inspired by the pap
 
 ##  Performance
 
-To be filled after running the evaluation:
 
 ```
-Test Accuracy on CIFAR-100: XX.XX%
+Test Accuracy on CIFAR-100: 27.58%
 ```
+### Comparison with the Original Paper
+
+| Model                                         | Dataset    | Accuracy |
+|----------------------------------------------|------------|----------|
+| **our Implementation (SimpleAugmentedCNN)** | CIFAR-100  | **27.58%** |
+| **Attention Augmented Wide-ResNet-28-10 (paper)** | CIFAR-100  | **82.9%** |
+
+###  Why Is our Accuracy Lower?
+
+1. **Shallow Architecture**  
+   our model is simple with only 1 augmented block and much fewer layers. The paper uses Wide-ResNet-28-10, which has 28 layers and 10× width so we have a much smaller parameter count. we couldn’t do the same as we don’t have strong computational power.
+
+2. **Short Training time**  
+   Our model was trained for only **10 epochs**, whereas the paper trains models for **100–200 epochs** .
+
+
+3. **Learning Rate**  
+   A fixed learning rate of 0.001 was used, while the paper uses advanced learning rate scheduling .
+
 
 ---
 
